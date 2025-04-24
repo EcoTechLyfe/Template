@@ -1,0 +1,515 @@
+/* style3.css */
+
+/* ====== CSS Variables ====== */
+:root {
+    --accent: #4f8cff;
+    --accent-dark: #2563eb;
+    --bg: #f7f9fb;
+    --bg-card: #fff;
+    --text: #222;
+    --text-light: #555;
+    --border: #e3e7ed;
+    --shadow: 0 4px 24px rgba(80, 120, 200, 0.08);
+    --radius: 16px;
+    --transition: 0.2s cubic-bezier(.4,0,.2,1);
+    --font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
+  }
+  
+  body.dark-theme {
+    --bg: #181c23;
+    --bg-card: #232834;
+    --text: #f3f6fa;
+    --text-light: #b0b8c9;
+    --border: #2c3240;
+    --shadow: 0 4px 24px rgba(30, 40, 80, 0.18);
+  }
+  
+  /* ====== Reset & Base ====== */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--font-main);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+    border-radius: var(--radius);
+  }
+  
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+  
+  a:hover {
+    color: var(--accent-dark);
+    text-decoration: underline;
+  }
+  
+  /* ====== Header & Navigation ====== */
+  header {
+    background: var(--bg-card);
+    box-shadow: var(--shadow);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+    color: var(--accent-dark);
+    padding: 24px 0 8px 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 0;
+    padding: 0 0 16px 0;
+    align-items: center;
+  }
+  
+  nav li {
+    display: flex;
+    align-items: center;
+  }
+  
+  nav a {
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background var(--transition), color var(--transition);
+  }
+  
+  nav a:hover,
+  nav a:focus {
+    background: var(--accent);
+    color: #fff;
+  }
+  
+  #style-switcher,
+  #theme-toggle {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+    box-shadow: 0 2px 8px rgba(80, 120, 200, 0.08);
+    margin-left: 4px;
+  }
+  
+  #style-switcher:hover,
+  #theme-toggle:hover {
+    background: var(--accent-dark);
+  }
+  
+  #theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .light-icon,
+  .dark-icon {
+    font-size: 1.2em;
+    display: none;
+  }
+  
+  body:not(.dark-theme) .light-icon {
+    display: inline;
+  }
+  body.dark-theme .dark-icon {
+    display: inline;
+  }
+  
+  /* ====== Main Layout ====== */
+  main {
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px 40px 20px;
+  }
+  
+  section {
+    margin-bottom: 48px;
+  }
+  
+  h2 {
+    font-size: 1.7rem;
+    color: var(--accent-dark);
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+  }
+  
+  h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 1.2rem;
+  }
+  
+  /* ====== About Section ====== */
+  .about-content {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .profile-image {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 16px rgba(80, 120, 200, 0.10);
+    border: 4px solid var(--border);
+    background: var(--bg-card);
+  }
+  
+  .about-content > div {
+    flex: 1 1 250px;
+  }
+  
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 12px 0 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .skills-list li {
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.98rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    transition: background var(--transition);
+  }
+  
+  .skills-list li:hover {
+    background: var(--accent-dark);
+  }
+  
+  /* ====== Timeline (Education & Experience) ====== */
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 3px solid var(--accent);
+    position: relative;
+  }
+  
+  .timeline li {
+    position: relative;
+    margin-bottom: 32px;
+    padding-left: 28px;
+  }
+  
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 3px solid var(--bg-card);
+    box-shadow: 0 2px 8px rgba(80, 120, 200, 0.10);
+  }
+  
+  .timeline .date {
+    font-size: 0.98rem;
+    color: var(--text-light);
+    margin-bottom: 4px;
+  }
+  
+  /* ====== Projects ====== */
+  .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  
+  .project-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    padding: 24px 20px;
+    flex: 1 1 320px;
+    min-width: 260px;
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-6px) scale(1.025);
+    box-shadow: 0 8px 32px rgba(80, 120, 200, 0.16);
+  }
+  
+  .project-links {
+    margin-top: 16px;
+    display: flex;
+    gap: 14px;
+  }
+  
+  .project-links a {
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.98rem;
+    font-weight: 500;
+    transition: background var(--transition), color var(--transition);
+    box-shadow: 0 2px 8px rgba(80, 120, 200, 0.08);
+  }
+  
+  .project-links a:hover {
+    background: var(--accent-dark);
+    color: #fff;
+  }
+  
+  /* ====== Certifications ====== */
+  .cert-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 18px;
+  }
+  
+  .cert-list li {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    transition: box-shadow var(--transition);
+  }
+  
+  .cert-list li:hover {
+    box-shadow: 0 8px 32px rgba(80, 120, 200, 0.14);
+  }
+  
+  .cert-list .date {
+    color: var(--text-light);
+    font-size: 0.97rem;
+    margin-bottom: 6px;
+  }
+  
+  .cert-list a {
+    display: inline-block;
+    margin-top: 8px;
+    background: var(--accent);
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-size: 0.97rem;
+    font-weight: 500;
+    transition: background var(--transition);
+  }
+  
+  .cert-list a:hover {
+    background: var(--accent-dark);
+  }
+  
+  /* ====== Contact Section ====== */
+  .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: flex-start;
+  }
+  
+  .contact-info {
+    flex: 1 1 220px;
+    min-width: 200px;
+  }
+  
+  .social-links {
+    margin-top: 12px;
+    display: flex;
+    gap: 12px;
+  }
+  
+  .social-links a {
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background var(--transition);
+  }
+  
+  .social-links a:hover {
+    background: var(--accent-dark);
+  }
+  
+  .contact-form {
+    flex: 2 1 320px;
+    min-width: 260px;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  label {
+    font-weight: 500;
+    color: var(--accent-dark);
+  }
+  
+  input,
+  textarea {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--bg);
+    color: var(--text);
+    transition: border var(--transition), background var(--transition);
+    resize: vertical;
+  }
+  
+  input:focus,
+  textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+    background: #eaf1ff;
+  }
+  
+  button[type="submit"] {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(80, 120, 200, 0.08);
+    transition: background var(--transition), box-shadow var(--transition);
+    margin-top: 8px;
+  }
+  
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background: var(--accent-dark);
+    box-shadow: 0 4px 16px rgba(80, 120, 200, 0.16);
+  }
+  
+  /* ====== Footer ====== */
+  footer {
+    background: var(--bg-card);
+    color: var(--text-light);
+    text-align: center;
+    padding: 24px 0 16px 0;
+    border-top: 1px solid var(--border);
+    font-size: 1rem;
+    box-shadow: 0 -2px 12px rgba(80, 120, 200, 0.04);
+    margin-top: 40px;
+  }
+  
+  footer span#current-year {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  
+  /* ====== Responsive Design ====== */
+  @media (max-width: 900px) {
+    main {
+      max-width: 98vw;
+      padding: 0 8px 32px 8px;
+    }
+    .about-content,
+    .contact-container,
+    .projects-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    header {
+      padding: 0 10px;
+    }
+    nav ul {
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .profile-image {
+      width: 100px;
+      height: 100px;
+    }
+    .project-card,
+    .contact-form,
+    .cert-list li {
+      padding: 14px 8px;
+    }
+    h1 {
+      font-size: 1.4rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* ====== Scrollbar Styling ====== */
+  ::-webkit-scrollbar {
+    width: 10px;
+    background: var(--bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+  }
+  
+  /* ====== Selection Styling ====== */
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
